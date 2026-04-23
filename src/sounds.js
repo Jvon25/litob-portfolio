@@ -42,7 +42,7 @@ export const sounds = {
     // Create HTML Audio element for Hackerkaba.mp3
     if (!ambientAudioElement) {
       ambientAudioElement = new Audio();
-      ambientAudioElement.src = '/sounds/Hackerkaba.mp3';
+      ambientAudioElement.src = `${import.meta.env.BASE_URL}sounds/Hackerkaba.mp3`;
       ambientAudioElement.loop = true;
       ambientAudioElement.preload = 'auto';
       ambientAudioElement.volume = 0.1; // 10% volume - presentation-safe
