@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Portfolio - Kali Linux</title>
+  <script type="module" crossorigin src="/litob-portfolio/assets/index-CeDveOTL.js"></script>
+  <link rel="stylesheet" crossorigin href="/litob-portfolio/assets/index-3_o2Ojgx.css">
+</head>
+<body>
+    <!-- LOADING PAGE -->
+    <div id="loading-screen">
+      <div class="loading-container">
+        <div class="loading-header">
+          <div class="hacker-icon">
+            <svg class="lock-shield" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1L2 6V12C2 18.5 12 23 12 23S22 18.5 22 12V6L12 1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              <rect x="9" y="11" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M9 11V9C9 7.89 9.89 7 11 7H13C14.11 7 15 7.89 15 9V11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <div class="code-matrix">
+              <span>01</span><span>10</span><span>11</span>
+              <span>10</span><span>01</span><span>10</span>
+              <span>11</span><span>10</span><span>01</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="loading-content">
+          <p class="loading-text">
+            <span class="loading-status" id="loading-status">Initializing system kernel</span>
+            <span class="loading-dots"></span>
+          </p>
+          
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          
+          <p class="loading-percentage" id="loading-percentage">0%</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STARTUP PAGE -->
+    <div id="startup-screen" style="display: none;">
+      <div class="startup-container">
+        <div class="startup-header">
+          <div class="hacker-icon">
+            <svg class="lock-shield" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1L2 6V12C2 18.5 12 23 12 23S22 18.5 22 12V6L12 1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+              <rect x="9" y="11" width="6" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M9 11V9C9 7.89 9.89 7 11 7H13C14.11 7 15 7.89 15 9V11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <div class="code-matrix">
+              <span>01</span><span>10</span><span>11</span>
+              <span>10</span><span>01</span><span>10</span>
+              <span>11</span><span>10</span><span>01</span>
+            </div>
+          </div>
+        </div>
+
+        <button id="startup-btn" class="startup-btn">
+          ▶ START
+        </button>
+      </div>
+    </div>
+
+    <!-- 3D CANVAS (hidden until START clicked) -->
+    <canvas id="canvas" style="visibility: hidden;"></canvas>
+
+    <!-- PORTFOLIO NAME & ROLES -->
+    <div id="portfolio-name" class="portfolio-name hidden">
+      <div class="terminal-output">
+        <div class="terminal-line">
+          <span class="terminal-cmd">gab_litob@portfolio:~$ whoami</span>
+        </div>
+        <div class="terminal-line">Cybersecurity Specialist</div>
+        <div class="terminal-line">Software Engineer</div>
+        <div class="terminal-line">Full-Stack Developer</div>
+        <div class="terminal-line">IT Professional</div>
+        <div class="terminal-line"></div>
+        <div class="terminal-line">
+          <span class="terminal-cmd">gab_litob@portfolio:~$ <span class="cursor">_</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HINT TEXT -->
+    <div id="hint-text" class="hint-text hidden">
+      <div class="hint-icon">📺</div>
+      Click the monitor screen to explore portfolio
+    </div>
+
+    <!-- VIRTUAL DESKTOP (Kali Linux) -->
+    <div id="virtual-desktop" class="virtual-desktop hidden">
+      <!-- KALI TOP BAR -->
+      <div class="kali-topbar">
+        <div class="kali-topbar-left">
+          <span class="kali-menu-btn">≡ Applications</span>
+          <span class="kali-menu-btn">Places</span>
+          <span class="kali-menu-btn">System</span>
+        </div>
+        <div class="kali-topbar-center">
+          <span class="kali-title">📁 Digital Portfolio</span>
+        </div>
+        <div class="kali-topbar-right">
+          <span class="kali-time" id="vd-clock">00:00</span>
+          <button class="kali-close-btn" id="vd-close-btn">✕</button>
+        </div>
+      </div>
+
+      <!-- KALI DESKTOP AREA -->
+      <div class="kali-desktop">
+        <!-- LEFT SIDEBAR -->
+        <div class="kali-sidebar">
+          <div class="kali-sidebar-icon" id="icon-about" title="About Me">
+            <span>👤</span>
+            <small>About</small>
+          </div>
+          <div class="kali-sidebar-icon" id="icon-skills" title="Skills">
+            <span>⚙️</span>
+            <small>Skills</small>
+          </div>
+          <div class="kali-sidebar-icon" id="icon-projects" title="Projects">
+            <span>📁</span>
+            <small>Projects</small>
+          </div>
+          <div class="kali-sidebar-icon" id="icon-reflections" title="Journals">
+            <span>📓</span>
+            <small>Journals</small>
+          </div>
+          <div class="kali-sidebar-icon" id="icon-creative" title="Creative Works">
+            <span>🎨</span>
+            <small>Creative</small>
+          </div>
+          <div class="kali-sidebar-icon" id="icon-contact" title="Contact">
+            <span>💬</span>
+            <small>Contact</small>
+          </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="kali-main">
+          <!-- Welcome Screen -->
+          <div class="kali-welcome" id="welcome-screen">
+            <div class="kali-dragon">🐉</div>
+            <div class="kali-welcome-title">KALI LINUX</div>
+            <div class="kali-welcome-sub">Portfolio Dashboard</div>
+            <div class="kali-welcome-hint">Click an icon on the left to view portfolio sections</div>
+            <div class="kali-terminal-blink"><span class="blink">█</span></div>
+          </div>
+
+          <!-- About Panel -->
+          <div class="kali-panel" id="panel-about">
+            <div class="kali-panel-titlebar">
+              <span>About Me</span>
+              <button class="kali-panel-close" data-panel="about">✕</button>
+            </div>
+            <div class="kali-panel-body">
+              <div class="about-header">
+                <div class="profile-placeholder">SIP</div>
+                <div>
+                  <h3>Angel Gabriel G. Litob Jr.</h3>
+                  <p class="section-intro">IT student building a reflection-centered digital portfolio for the Seniors Integration Program. This workspace presents growth in discernment, purpose, resilience, and service.</p>
+                </div>
+              </div>
+              <div class="activity-grid">
+                <article class="activity-card">
+                  <h4>How can I grow more in my discernment</h4>
+                  <p>I can grow in discernment by slowing down before decisions, reflecting honestly on intentions, praying, and listening to trusted guidance. It helps me become more responsible and grounded in values.</p>
+                </article>
+                <article class="activity-card">
+                  <h4>Have you had an experience similar to St Properties</h4>
+                  <p>In seasons of confusion and pressure, I learned to distinguish consolation and desolation through prayer, awareness, and reflection. This experience shaped me to become more disciplined, patient, and purpose-driven.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Panel -->
+          <div class="kali-panel" id="panel-skills">
+            <div class="kali-panel-titlebar">
+              <span>Skills</span>
+              <button class="kali-panel-close" data-panel="skills">✕</button>
+            </div>
+            <div class="kali-panel-body">
+              <h3>Activity Focus: How can I grow more in my discernment</h3>
+              <div class="skills-grid">
+                <span class="skill-badge">Reflective Thinking</span>
+                <span class="skill-badge">Discernment</span>
+                <span class="skill-badge">Self-Awareness</span>
+                <span class="skill-badge">Ethical Decision-Making</span>
+                <span class="skill-badge">Purpose-Driven Planning</span>
+                <span class="skill-badge">Academic Writing</span>
+                <span class="skill-badge">Narrative Synthesis</span>
+                <span class="skill-badge tool">Portfolio Design</span>
+                <span class="skill-badge tool">Content Curation</span>
+                <span class="skill-badge soft">Resilience</span>
+                <span class="skill-badge soft">Empathy</span>
+                <span class="skill-badge soft">Accountability</span>
+              </div>
+              <div class="activity-card">
+                <h4>Applied Learning</h4>
+                <p>This activity trained me to pause before decisions, evaluate intentions, and choose responses based on values. As a future IT professional, it strengthened my habit of making responsible and ethical decisions under pressure.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects Panel -->
+          <div class="kali-panel" id="panel-projects">
+            <div class="kali-panel-titlebar">
+              <span>Projects</span>
+              <button class="kali-panel-close" data-panel="projects">✕</button>
+            </div>
+            <div class="kali-panel-body">
+              <h3>Activity Focus: SIP Activity</h3>
+              <div class="project-card">
+                <h3>SIP Activity</h3>
+                <p>What is beyond myself: A personal record capturing key themes from ADDU formation, including service, gratitude, and responsibility. It highlights applying learning in a practical and community-centered way.</p>
+                <p>This output emphasizes growth beyond personal success by aligning skills with service, compassion, and real contribution to others.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Journals Panel -->
+          <div class="kali-panel" id="panel-reflections">
+            <div class="kali-panel-titlebar">
+              <span>Journals</span>
+              <button class="kali-panel-close" data-panel="reflections">✕</button>
+            </div>
+            <div class="kali-panel-body journal-body">
+              <div class="journal-entry">
+                <h3>Have you had an experience similar to St Properties</h3>
+                <span class="journal-date">SIP Reflection Entry</span>
+                <p>Through moments of confusion, I learned to notice inner movements and respond with prayer, reflection, and patience. This helped transform uncertainty into deeper self-understanding.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Creative Panel -->
+          <div class="kali-panel" id="panel-creative">
+            <div class="kali-panel-titlebar">
+              <span>Creative</span>
+              <button class="kali-panel-close" data-panel="creative">✕</button>
+            </div>
+            <div class="kali-panel-body">
+              <div class="creative-card">
+                <div class="creative-img">FILM ANALYSIS</div>
+                <h3>The Pursuit of Happyness</h3>
+                <p>A reflective write-up interpreting resilience and purpose through an Ignatian lens, then applying those insights to my own academic and professional journey.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Panel -->
+          <div class="kali-panel" id="panel-contact">
+            <div class="kali-panel-titlebar">
+              <span>Contact</span>
+              <button class="kali-panel-close" data-panel="contact">✕</button>
+            </div>
+            <div class="kali-panel-body contact-body">
+              <h3>Portfolio Notes</h3>
+              <div class="contact-links">
+                <a href="#" class="contact-btn">SIP Reflection Set</a>
+                <a href="#" class="contact-btn">Activity Archive</a>
+              </div>
+              <p class="contact-note">This portfolio is for academic presentation under the Seniors Integration Program. Personal contact details are intentionally excluded for privacy and data protection.</p>
+              <div class="kali-privacy">🔒 Privacy Notice: This portfolio complies with RA 10173. No personal data beyond username is collected.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KALI BOTTOM TASKBAR -->
+      <div class="kali-taskbar">
+        <div class="kali-taskbar-left">
+          <span class="kali-taskbar-icon">🐉</span>
+          <span class="kali-taskbar-text">Digital Portfolio</span>
+        </div>
+        <span class="kali-taskbar-time" id="tb-clock">00:00</span>
+      </div>
+    </div>
+
+</body>
+</html>
