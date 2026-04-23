@@ -88,7 +88,7 @@ let computerModel = null;
 let screenMesh = null;
 
 gltfLoader.load(
-  '/models/old-computer.glb',
+  `${import.meta.env.BASE_URL}models/old-computer.glb`,
   (gltf) => {
     console.log('✅ Model loaded successfully');
     computerModel = gltf.scene;
