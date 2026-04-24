@@ -1101,7 +1101,18 @@ canvas.hidden {
 
 /* Film analysis */
 .sip-film {
-  max-width: 760px;
+  max-width: none;
+}
+
+.sip-film-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.9fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.sip-film-left {
+  min-width: 0;
 }
 
 .sip-film-banner {
@@ -1146,6 +1157,40 @@ canvas.hidden {
   color: #f5e6d3;
 }
 
+.sip-film-card {
+  background: linear-gradient(160deg, rgba(22, 26, 48, 0.9), rgba(14, 16, 30, 0.94));
+  border: 1px solid rgba(87, 199, 255, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.sip-film-card-label {
+  margin: 0 0 10px;
+  color: #7fd3ff;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.sip-film-embed-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(87, 199, 255, 0.25);
+  background: rgba(8, 10, 18, 0.95);
+}
+
+.sip-film-embed-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 /* Shared figures */
 .sip-figure {
   margin: 20px 0 8px;
@@ -1175,6 +1220,17 @@ canvas.hidden {
 @media (max-width: 720px) {
   .sip-preview-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .sip-film-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .sip-film-card {
+    width: 100%;
   }
 }
 
