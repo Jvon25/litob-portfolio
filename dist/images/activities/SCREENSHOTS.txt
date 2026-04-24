@@ -1,0 +1,8 @@
+Place your activity screenshots in this folder using these exact filenames (PNG recommended):
+
+  discernment-worksheet.png   — Discernment panel (three Q&A responses)
+  beyond-myself.png           — What is beyond myself / personal record
+  manresa-reflection.png      — Ignatian reflection (Manresa / consolations & desolations)
+  pursuit-happyness.png       — The Pursuit of Happyness film reflection
+
+Paths in the site: ./images/activities/<filename>
