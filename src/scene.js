@@ -137,7 +137,7 @@ window.addEventListener('resize', () => {
 
 // --- ANIMATION LOOP STATE ---
 let isAnimating = false;
-let audioEnabled = true;
+let audioEnabled = false;
 
 // --- ANIMATION LOOP ---
 function animate() {
