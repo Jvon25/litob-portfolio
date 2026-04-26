@@ -231,6 +231,7 @@ function setupPanelInteractions() {
     'icon-skills': 'panel-skills',
     'icon-projects': 'panel-projects',
     'icon-reflections': 'panel-reflections',
+    'icon-journeymap': 'panel-journeymap',
     'icon-creative': 'panel-creative',
     'icon-contact': 'panel-contact'
   };
@@ -251,6 +252,26 @@ function setupPanelInteractions() {
       if (panel) {
         panel.classList.remove('active');
         sounds.terminalBell();
+      }
+    });
+  });
+
+  // Folder interactions
+  document.querySelectorAll('.folder-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const targetPanel = item.getAttribute('data-target');
+      if (targetPanel) {
+        openPanel(targetPanel, 'icon-creative');
+      }
+    });
+  });
+
+  // Back buttons
+  document.querySelectorAll('.kali-panel-back').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetPanel = btn.getAttribute('data-target');
+      if (targetPanel) {
+        openPanel(targetPanel, 'icon-creative');
       }
     });
   });

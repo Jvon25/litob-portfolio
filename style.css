@@ -1316,3 +1316,56 @@ canvas.hidden {
   font-size: 12px;
   font-family: 'Share Tech Mono', monospace;
 }
+
+/* FOLDER VIEW */
+.folder-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+.folder-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 110px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.folder-item:hover {
+  background: rgba(87,199,255,0.1);
+  border-color: rgba(87,199,255,0.3);
+}
+.folder-icon {
+  font-size: 48px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+.folder-name {
+  color: #e0e0e0;
+  font-size: 12px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.3;
+}
+.kali-panel-back {
+  background: transparent;
+  border: 1px solid rgba(87,199,255,0.5);
+  color: #57c7ff;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.kali-panel-back:hover {
+  background: rgba(87,199,255,0.2);
+  border-color: #57c7ff;
+}
