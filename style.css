@@ -1369,3 +1369,90 @@ canvas.hidden {
   background: rgba(87,199,255,0.2);
   border-color: #57c7ff;
 }
+
+/* Scanned Artifacts Gallery */
+.scanned-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.gallery-item {
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(87, 199, 255, 0.2);
+  border-radius: 6px;
+  padding: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(87, 199, 255, 0.6);
+  background: rgba(87, 199, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.gallery-item:hover img {
+  opacity: 1;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox-modal.show {
+  display: flex;
+  opacity: 1;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border: 1px solid rgba(87, 199, 255, 0.4);
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(87, 199, 255, 0.2);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.lightbox-modal.show .lightbox-content {
+  transform: scale(1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: rgba(87, 199, 255, 0.7);
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: monospace;
+}
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}

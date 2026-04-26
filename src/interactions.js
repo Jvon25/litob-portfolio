@@ -228,12 +228,11 @@ function setupPanelInteractions() {
   // Sidebar icons
   const icons = {
     'icon-about': 'panel-about',
-    'icon-skills': 'panel-skills',
-    'icon-projects': 'panel-projects',
-    'icon-reflections': 'panel-reflections',
+    'icon-journal': 'panel-journal',
     'icon-journeymap': 'panel-journeymap',
     'icon-creative': 'panel-creative',
-    'icon-contact': 'panel-contact'
+    'icon-contact': 'panel-contact',
+    'icon-conversation': 'panel-conversation'
   };
 
   Object.entries(icons).forEach(([iconId, panelId]) => {
@@ -327,3 +326,38 @@ function updateClock() {
   updateTime();
   setInterval(updateTime, 1000);
 }
+
+// --- LIGHTBOX INTERACTIONS (Event Delegation) ---
+document.addEventListener('click', (e) => {
+  // Check if click is on a gallery item
+  const galleryItem = e.target.closest('.gallery-item');
+  if (galleryItem) {
+    e.preventDefault();
+    const img = galleryItem.querySelector('img') || (e.target.tagName === 'IMG' ? e.target : null);
+    if (img) {
+      const lightbox = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+      }
+    }
+    return;
+  }
+
+  // Check if click is on lightbox close button
+  if (e.target.closest('.lightbox-close')) {
+    const lightbox = document.getElementById('lightbox-modal');
+    if (lightbox) lightbox.classList.remove('show');
+    return;
+  }
+
+  // Check if click is on the modal background to close it
+  const lightbox = document.getElementById('lightbox-modal');
+  if (lightbox && lightbox.classList.contains('show')) {
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (e.target !== lightboxImg && !e.target.closest('.lightbox-content')) {
+      lightbox.classList.remove('show');
+    }
+  }
+});
